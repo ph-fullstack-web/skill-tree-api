@@ -1,13 +1,14 @@
 import { Body, Controller, Post, Get } from '@nestjs/common';
-import { NodeService } from 'src/service/node.service';
+
+import { NodeService } from 'src/service';
+import { ApprovedAny } from 'src/types';
 
 @Controller('nodes')
 export class NodeController {
   constructor(private readonly nodeService: NodeService) {}
 
   @Post()
-  async saveData(@Body() data: any) {
-    console.log('data: ' + data);
+  async saveData(@Body() data: ApprovedAny) {
     return this.nodeService.saveData(data);
   }
 

@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MONGO_CONNECTION } from './app.properties';
-import { SkillsModule } from './module/skills.module';
+import mongoose from 'mongoose';
+
+import { SkillsModule } from './module';
+
+mongoose.set('returnOriginal', false);
 
 @Module({
-  imports: [SkillsModule, MongooseModule.forRoot(MONGO_CONNECTION)],
+  imports: [MongooseModule.forRoot(process.env.MONGO_CONNECTION), SkillsModule],
 })
 export class AppModule {}
