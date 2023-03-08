@@ -7,7 +7,6 @@ export class NodeController {
 
   @Post()
   async saveData(@Body() data: any) {
-    console.log('data: ' + data);
     return this.nodeService.saveData(data);
   }
 
