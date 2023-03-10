@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { Edge } from '@nestjs/core/inspector/interfaces/edge.interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Node } from '../interface/node.interface';
+
+import { ApprovedAny, Edge, Node } from 'src/types';
 
 @Injectable()
 export class NodeService {
@@ -11,7 +11,7 @@ export class NodeService {
     @InjectModel('Edge') private edgeModel: Model<Edge>,
   ) {}
 
-  async saveData(data: any) {
+  async saveData(data: ApprovedAny) {
     const nodes = data.nodes;
     const edges = data.edges;
 
