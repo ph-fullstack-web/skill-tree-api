@@ -1,2 +1,2 @@
-export * from './node.controller';
 export * from './skill.controller';
+export * from './template.controller';
