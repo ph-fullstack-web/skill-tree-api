@@ -40,7 +40,9 @@ export class SkillService {
 
   async update(id: string, data: Skill) {
     try {
-      const result = await this.skillModel.findByIdAndUpdate(id, data);
+      const result = await this.skillModel.findByIdAndUpdate(id, data, {
+        runValidators: true,
+      });
 
       return result;
     } catch (error) {

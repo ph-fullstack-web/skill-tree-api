@@ -1,2 +1,2 @@
-export * from './node.service';
 export * from './skill.service';
+export * from './template.service';
